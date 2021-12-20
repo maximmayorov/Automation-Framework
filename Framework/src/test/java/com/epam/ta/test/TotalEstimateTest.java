@@ -6,10 +6,7 @@ import com.epam.ta.service.CalculatorDataCreator;
 import com.epam.ta.util.TestListener;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 @Listeners(TestListener.class)
 public class TotalEstimateTest {
@@ -33,7 +30,7 @@ public class TotalEstimateTest {
         Assert.assertEquals(emailTotalEstimate, calculatorTotalEstimate);
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void browserStop() {
         DriverSingleton.closeDriver();
     }
