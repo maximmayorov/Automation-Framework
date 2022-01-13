@@ -20,9 +20,9 @@ public class CalculatorDataCreator {
         CalculatorData data  = new CalculatorData();
         data.setInstances(TestDataReader.getTestData(INSTANCES));
         data.setOs(TestDataReader.getTestData(OS));
-        data.setMachineClass(TestDataReader.getTestData(MACHINE_CLASS));
+        data.setVmClass(TestDataReader.getTestData(MACHINE_CLASS));
         data.setSeries(TestDataReader.getTestData(SERIES));
-        data.setMachineType(TestDataReader.getTestData(MACHINE_TYPE));
+        data.setInstanceType(TestDataReader.getTestData(MACHINE_TYPE));
         data.setAddGPUs(Boolean.parseBoolean(TestDataReader.getTestData(GPU)));
         data.setGpuType(TestDataReader.getTestData(GPU_TYPE));
         data.setNumberOfGPUs(TestDataReader.getTestData(GPU_NUMBER));

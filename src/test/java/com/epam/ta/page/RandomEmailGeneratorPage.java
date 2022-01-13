@@ -15,9 +15,8 @@ public class RandomEmailGeneratorPage extends AbstractPage {
         PageFactory.initElements(driver, this);
     }
 
-    public InboxEmailPage checkEmailPage() {
+    public InboxEmailPage openInboxEmailPage() {
         checkInboxButton.click();
         return new InboxEmailPage(driver);
     }
-
 }
