@@ -1,5 +1,7 @@
 package com.epam.ta.page;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +12,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 public class GoogleCloudCalculatorPage extends AbstractPage {
+
+    private final Logger logger = LogManager.getRootLogger();
 
     private static final String TOTAL_ESTIMATE_XPATH = "//h2/b";
     private static final String EMAIL_ESTIMATE_BUTTON_XPATH = "email_quote";
@@ -101,6 +105,7 @@ public class GoogleCloudCalculatorPage extends AbstractPage {
                 return;
             }
         }
+        logger.error("The dropdown menu doesn't contain the option " + item);
         throw new NoSuchElementException("The dropdown menu doesn't contain the option " + item);
     }
 
@@ -166,6 +171,7 @@ public class GoogleCloudCalculatorPage extends AbstractPage {
     }
 
     public void sendEmail(String email) {
+        logger.info("Sending total estimate to email " + email);
         waitForElement(By.id(EMAIL_ESTIMATE_BUTTON_XPATH)).click();
         waitForElement(By.xpath(EMAIL_INPUT_XPATH)).sendKeys(email);
         waitForElement(By.xpath(SEND_EMAIL_BUTTON_XPATH)).click();

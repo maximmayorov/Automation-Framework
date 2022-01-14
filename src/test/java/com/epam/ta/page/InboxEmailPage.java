@@ -1,5 +1,7 @@
 package com.epam.ta.page;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +13,8 @@ import org.openqa.selenium.support.ui.Wait;
 import java.time.Duration;
 
 public class InboxEmailPage extends AbstractPage {
+
+    private final Logger logger = LogManager.getRootLogger();
 
     private static final String EMAIL_FRAME_XPATH = "ifmail";
     private static final String TOTAL_ESTIMATE_XPATH = "//table/tbody/tr/td[2]/h3";
@@ -29,6 +33,7 @@ public class InboxEmailPage extends AbstractPage {
                 .ignoring(NoSuchElementException.class);
         driver.switchTo().frame(driver.findElement(By.id(EMAIL_FRAME_XPATH)));
         WebElement totalEstimate = fluentWait.until(driver -> {
+            logger.info("Waiting for an email with total estimate");
             driver.navigate().refresh();
             driver.switchTo().frame(driver.findElement(By.id(EMAIL_FRAME_XPATH)));
             return  driver.findElement(By.xpath(TOTAL_ESTIMATE_XPATH));

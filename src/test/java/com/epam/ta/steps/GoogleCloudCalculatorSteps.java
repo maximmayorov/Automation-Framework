@@ -9,11 +9,10 @@ import org.openqa.selenium.WebDriver;
 
 public class GoogleCloudCalculatorSteps {
 
-    private final WebDriver driver;
+    private final WebDriver driver = DriverSingleton.getDriver();
     private final GoogleCloudCalculatorPage calculatorPage;
 
     public GoogleCloudCalculatorSteps(GoogleCloudCalculatorPage calculatorPage) {
-        this.driver = DriverSingleton.getDriver();
         this.calculatorPage = calculatorPage;
     }
 
