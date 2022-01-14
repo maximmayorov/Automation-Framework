@@ -18,15 +18,18 @@ public class GoogleCloudCalculatorSteps {
     }
 
     public void addToEstimate(CalculatorData data) {
+        calculatorPage.switchToCalculatorFrame();
         calculatorPage.selectTabComputeEngine();
         calculatorPage.setNumberOfInstance(data.getInstances());
         calculatorPage.selectOS(data.getOs());
         calculatorPage.selectVMClass(data.getVmClass());
         calculatorPage.selectMachineSeries(data.getSeries());
         calculatorPage.selectInstanceType(data.getInstanceType());
-        calculatorPage.setAddGPUsCheckBox();
-        calculatorPage.selectGPUType(data.getGpuType());
-        calculatorPage.selectNumberOfGPUs(data.getNumberOfGPUs());
+        if (data.isAddGPUs()) {
+            calculatorPage.setAddGPUsCheckBox();
+            calculatorPage.selectGPUType(data.getGpuType());
+            calculatorPage.selectNumberOfGPUs(data.getNumberOfGPUs());
+        }
         calculatorPage.selectSSDSize(data.getSsd());
         calculatorPage.selectLocation(data.getLocation());
         calculatorPage.selectCommittedUsage(data.getCommittedUsage());

@@ -3,7 +3,6 @@ package com.epam.ta.page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class RandomEmailGeneratorPage extends AbstractPage {
 
@@ -12,7 +11,6 @@ public class RandomEmailGeneratorPage extends AbstractPage {
 
     public RandomEmailGeneratorPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver, this);
     }
 
     public InboxEmailPage openInboxEmailPage() {

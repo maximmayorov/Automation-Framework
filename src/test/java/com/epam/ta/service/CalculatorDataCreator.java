@@ -17,18 +17,16 @@ public class CalculatorDataCreator {
     public static final String USAGE = "calculator.data.committed.usage";
 
     public static CalculatorData createTestData() {
-        CalculatorData data  = new CalculatorData();
-        data.setInstances(TestDataReader.getTestData(INSTANCES));
-        data.setOs(TestDataReader.getTestData(OS));
-        data.setVmClass(TestDataReader.getTestData(MACHINE_CLASS));
-        data.setSeries(TestDataReader.getTestData(SERIES));
-        data.setInstanceType(TestDataReader.getTestData(MACHINE_TYPE));
-        data.setAddGPUs(Boolean.parseBoolean(TestDataReader.getTestData(GPU)));
-        data.setGpuType(TestDataReader.getTestData(GPU_TYPE));
-        data.setNumberOfGPUs(TestDataReader.getTestData(GPU_NUMBER));
-        data.setSsd(TestDataReader.getTestData(SSD));
-        data.setLocation(TestDataReader.getTestData(LOCATION));
-        data.setCommittedUsage(TestDataReader.getTestData(USAGE));
-        return data;
+        return new CalculatorData(TestDataReader.getTestData(INSTANCES),
+                TestDataReader.getTestData(OS),
+                TestDataReader.getTestData(MACHINE_CLASS),
+                TestDataReader.getTestData(SERIES),
+                TestDataReader.getTestData(MACHINE_TYPE),
+                Boolean.parseBoolean(TestDataReader.getTestData(GPU)),
+                TestDataReader.getTestData(GPU_TYPE),
+                TestDataReader.getTestData(GPU_NUMBER),
+                TestDataReader.getTestData(SSD),
+                TestDataReader.getTestData(LOCATION),
+                TestDataReader.getTestData(USAGE));
     }
 }
